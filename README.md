@@ -5,34 +5,41 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 ## Data Structures
 
 ### Queues
-|       instance      | persistence | amortization | empty | isEmpty |     snoc     | head |     tail     |
-|:-------------------:|:-----------:|:------------:|:-----:|:-------:|:------------:|:----:|:------------:|
-|    Batched Queue    |  ephemeral  |      yes     |  O(1) |   O(1)  | O(n) / O(1)* | O(1) | O(n) / O(1)* |
-|    Banker's Queue   |  persistent |      yes     |  O(1) |   O(1)  | O(n) / O(1)* | O(1) | O(n) / O(1)* |
-|  Physicist's Queue  |  persistent |      yes     |  O(1) |   O(1)  | O(n) / O(1)* | O(1) | O(n) / O(1)* |
-|   Real-Time Queue   |  persistent |      no      |  O(1) |   O(1)  |     O(1)     | O(1) |     O(1)     |
-| Hood-Melville Queue |  persistent |      no      |  O(1) |   O(1)  |     O(1)     | O(1) |     O(1)     |
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/queues.ipynb)
+
+|       instance      | persistence |     snoc     | head |     tail     |
+|:-------------------:|:-----------:|:------------:|:----:|:------------:|
+|    Batched Queue    |  ephemeral  | O(n) / O(1)* | O(1) | O(n) / O(1)* |
+|    Banker's Queue   |  persistent | O(n) / O(1)* | O(1) | O(n) / O(1)* |
+|  Physicist's Queue  |  persistent | O(n) / O(1)* | O(1) | O(n) / O(1)* |
+|   Real-Time Queue   |  persistent |     O(1)     | O(1) |     O(1)     |
+| Hood-Melville Queue |  persistent |     O(1)     | O(1) |     O(1)     |
 
 *\* amortized time*
 
 ### Deques
-|                instance               | persistence | amortization | empty | isEmpty |     cons     | head |     tail     |     snoc     | last |     init     |
-|:-------------------------------------:|:-----------:|:------------:|:-----:|:-------:|:------------:|:----:|:------------:|:------------:|:----:|:------------:|
-|    Output-Restricted Banker's Deque   |  persistent |      yes     |  O(1) |   O(1)  | O(n) / O(1)* | O(1) | O(n) / O(1)* | O(n) / O(1)* |   -  |       -      |
-|   Output-Restricted Real-Time Deque   |  persistent |      no      |  O(1) |   O(1)  |     O(1)     | O(1) |     O(1)     |     O(1)     |   -  |       -      |
-| Output-Restricted Hood-Melville Deque |  persistent |      no      |  O(1) |   O(1)  |    O(1)**    | O(1) |     O(1)     |     O(1)     |   -  |       -      |
-|             Banker's Deque            |  persistent |      yes     |  O(1) |   O(1)  | O(n) / O(1)* | O(1) | O(n) / O(1)* | O(n) / O(1)* | O(1) | O(n) / O(1)* |
-|            Real-Time Deque            |  persistent |      no      |  O(1) |   O(1)  |     O(1)     | O(1) |     O(1)     |     O(1)     | O(1) |     O(1)     |
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/deques.ipynb)
+
+|                instance               | persistence |     cons     | head |     tail     |     snoc     | last |     init     |
+|:-------------------------------------:|:-----------:|:------------:|:----:|:------------:|:------------:|:----:|:------------:|
+|    Output-Restricted Banker's Deque   |  persistent | O(n) / O(1)* | O(1) | O(n) / O(1)* | O(n) / O(1)* |   -  |       -      |
+|   Output-Restricted Real-Time Deque   |  persistent |     O(1)     | O(1) |     O(1)     |     O(1)     |   -  |       -      |
+| Output-Restricted Hood-Melville Deque |  persistent |    O(1)**    | O(1) |     O(1)     |     O(1)     |   -  |       -      |
+|             Banker's Deque            |  persistent | O(n) / O(1)* | O(1) | O(n) / O(1)* | O(n) / O(1)* | O(1) | O(n) / O(1)* |
+|            Real-Time Deque            |  persistent |     O(1)     | O(1) |     O(1)     |     O(1)     | O(1) |     O(1)     |
 
 *\* amortized time*
+
 *\*\* via the `ConsQueue` wrapper*
 
 ### Random Access List
-|                  instance                  | amortization | empty | isEmpty |        cons       |        head        |        tail       |   lookup  |   update  |
-|:------------------------------------------:|:------------:|:-----:|:-------:|:-----------------:|:------------------:|:-----------------:|:---------:|:---------:|
-|          Binary Random Access List         |      no      |  O(1) |   O(1)  |     O(log(n))     | O(log(n)) / O(1)** |     O(log(n))     | O(log(n)) | O(log(n)) |
-|     Zeroless Binary Random Access List     |      no      |  O(1) |   O(1)  |     O(log(n))     |        O(1)        |     O(log(n))     | O(log(i)) | O(log(i)) |
-| Zeroless Redundant Bin. Random Access List |      yes     |  O(1) |   O(1)  | O(log(n)) / O(1)* |        O(1)        | O(log(n)) / O(1)* | O(log(i)) | O(log(i)) |
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/rlist.ipynb)
+
+|                  instance                  |        cons       |        head        |        tail       |   lookup  |   update  |
+|:------------------------------------------:|:-----------------:|:------------------:|:-----------------:|:---------:|:---------:|
+|          Binary Random Access List         |     O(log(n))     | O(log(n)) / O(1)** |     O(log(n))     | O(log(n)) | O(log(n)) |
+|     Zeroless Binary Random Access List     |     O(log(n))     |        O(1)        |     O(log(n))     | O(log(i)) | O(log(i)) |
+| Zeroless Redundant Bin. Random Access List | O(log(n)) / O(1)* |        O(1)        | O(log(n)) / O(1)* | O(log(i)) | O(log(i)) |
 
 where n is the list size and i is the index parameter of the `lookup`/`update`.
 
@@ -41,30 +48,37 @@ where n is the list size and i is the index parameter of the `lookup`/`update`.
 *\*\* with explicit reference to the head element*
 
 ### Heaps
-|         instance        | persistence | amortization | empty | isEmpty |       insert      |       merge       |           findMin          |     deleteMin     |
-|:-----------------------:|:-----------:|:------------:|:-----:|:-------:|:-----------------:|:-----------------:|:--------------------------:|:-----------------:|
-|       Leftist Heap      |  ephemeral  |      no      |  O(1) |   O(1)  |     O(log(n))     |     O(log(n))     |            O(1)            |     O(log(n))     |
-|      Binomial Heap      |  persistent |      yes     |  O(1) |   O(1)  | O(log(n)) / O(1)* |     O(log(n))     |     O(log(n)) / O(1)**     |     O(log(n))     |
-| Scheduled Binomial Heap |  persistent |      no      |  O(1) |   O(1)  |        O(1)       |     O(log(n))     |     O(log(n)) / O(1)**     |     O(log(n))     |
-|        Splay Heap       |  ephemeral  |      yes     |  O(1) |   O(1)  | O(n) / O(log(n))* | O(n) / O(log(n))* | O(n) / O(log(n))* / O(1)** | O(n) / O(log(n))* |
-|       Pairing Heap      |  ephemeral  |      yes     |  O(1) |   O(1)  |        O(1)       |        O(1)       |            O(1)            | O(n) / O(log(n))* |
-|    Lazy Pairing Heap    |  persistent |      yes     |  O(1) |   O(1)  |        TODO       |        TODO       |            O(1)            |        TODO       |
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/heaps.ipynb)
+
+|         instance        | persistence |       insert      |       merge       |           findMin          |     deleteMin     |
+|:-----------------------:|:-----------:|:-----------------:|:-----------------:|:--------------------------:|:-----------------:|
+|       Leftist Heap      |  ephemeral  |     O(log(n))     |     O(log(n))     |            O(1)            |     O(log(n))     |
+|      Binomial Heap      |  persistent | O(log(n)) / O(1)* |     O(log(n))     |     O(log(n)) / O(1)**     |     O(log(n))     |
+| Scheduled Binomial Heap |  persistent |        O(1)       |     O(log(n))     |     O(log(n)) / O(1)**     |     O(log(n))     |
+|        Splay Heap       |  ephemeral  | O(n) / O(log(n))* | O(n) / O(log(n))* | O(n) / O(log(n))* / O(1)** | O(n) / O(log(n))* |
+|       Pairing Heap      |  ephemeral  |        O(1)       |        O(1)       |            O(1)            | O(n) / O(log(n))* |
+|    Lazy Pairing Heap    |  persistent |        TODO       |        TODO       |            O(1)            |        TODO       |
 
 *\* amortized time*
 
 *\*\* with explicit reference to the minimum element*
 
 ### Sortable Collections
-|       instance       | persistence | amortization | empty |     add    |  sort |
-|:--------------------:|:-----------:|:------------:|:-----:|:----------:|:-----:|
-|      Merge Sort      |  persistent |      yes     |  O(1) | O(log(n))* | O(n)* |
-| Scheduled Merge Sort |  persistent |      no      |  O(1) |  O(log(n)) |  O(n) |
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/sortable.ipynb)
+
+|       instance       | persistence |     add    |  sort |
+|:--------------------:|:-----------:|:----------:|:-----:|
+|      Merge Sort      |  persistent | O(log(n))* | O(n)* |
+| Scheduled Merge Sort |  persistent |  O(log(n)) |  O(n) |
 
 ### Sets
-|      instance      | persistence | empty |   member  |   insert  |
-|:------------------:|:-----------:|:-----:|:---------:|:---------:|
-| Binary Search Tree |  ephemeral  |  O(1) |    O(n)   |    O(n)   |
-|   Red-Black Tree   |  ephemeral  |  O(1) | O(log(n)) | O(log(n)) |
+
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](hhttps://nbviewer.org/github/matyama/pfds/blob/main/notebooks/sets.ipynb)
+
+|      instance      | persistence |   member  |   insert  |
+|:------------------:|:-----------:|:---------:|:---------:|
+| Binary Search Tree |  ephemeral  |    O(n)   |    O(n)   |
+|   Red-Black Tree   |  ephemeral  | O(log(n)) | O(log(n)) |
 
 ## Terminology
 See [terminology](terminology.md) for brief description and
