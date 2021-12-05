@@ -33,7 +33,7 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 *\*\* via the `ConsQueue` wrapper*
 
 ### Random Access List
-[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/rlist.ipynb)
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/rlists.ipynb)
 
 |                  instance                  |        cons       |        head        |        tail       |   lookup  |   update  |
 |:------------------------------------------:|:-----------------:|:------------------:|:-----------------:|:---------:|:---------:|
