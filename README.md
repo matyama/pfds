@@ -35,11 +35,12 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 ### Random Access List
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/rlists.ipynb)
 
-|                  instance                  |        cons       |        head        |        tail       |   lookup  |   update  |
-|:------------------------------------------:|:-----------------:|:------------------:|:-----------------:|:---------:|:---------:|
-|          Binary Random Access List         |     O(log(n))     | O(log(n)) / O(1)** |     O(log(n))     | O(log(n)) | O(log(n)) |
-|     Zeroless Binary Random Access List     |     O(log(n))     |        O(1)        |     O(log(n))     | O(log(i)) | O(log(i)) |
-| Zeroless Redundant Bin. Random Access List | O(log(n)) / O(1)* |        O(1)        | O(log(n)) / O(1)* | O(log(i)) | O(log(i)) |
+|                  instance                  |        cons       |        head        |        tail       |       lookup      |       update      |
+|:------------------------------------------:|:-----------------:|:------------------:|:-----------------:|:-----------------:|:-----------------:|
+|          Binary Random Access List         |     O(log(n))     | O(log(n)) / O(1)** |     O(log(n))     |     O(log(n))     |     O(log(n))     |
+|     Zeroless Binary Random Access List     |     O(log(n))     |        O(1)        |     O(log(n))     |     O(log(i))     |     O(log(i))     |
+| Zeroless Redundant Bin. Random Access List | O(log(n)) / O(1)* |        O(1)        | O(log(n)) / O(1)* |     O(log(i))     |     O(log(i))     |
+|       Skew Binary Random Access List       |        O(1)       |        O(1)        |        O(1)       | O(min(i, log(n))) | O(min(i, log(n))) |
 
 where n is the list size and i is the index parameter of the `lookup`/`update`.
 
