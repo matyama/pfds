@@ -56,9 +56,10 @@ where n is the list size and i is the index parameter of the `lookup`/`update`.
 |       Leftist Heap      |  ephemeral  |     O(log(n))     |     O(log(n))     |            O(1)            |     O(log(n))     |
 |      Binomial Heap      |  persistent | O(log(n)) / O(1)* |     O(log(n))     |     O(log(n)) / O(1)**     |     O(log(n))     |
 | Scheduled Binomial Heap |  persistent |        O(1)       |     O(log(n))     |     O(log(n)) / O(1)**     |     O(log(n))     |
+|    Skew Binomial Heap   |  persistent |        O(1)       |     O(log(n))     |     O(log(n)) / O(1)**     |     O(log(n))     |
 |        Splay Heap       |  ephemeral  | O(n) / O(log(n))* | O(n) / O(log(n))* | O(n) / O(log(n))* / O(1)** | O(n) / O(log(n))* |
 |       Pairing Heap      |  ephemeral  |        O(1)       |        O(1)       |            O(1)            | O(n) / O(log(n))* |
-|    Lazy Pairing Heap    |  persistent |        TODO       |        TODO       |            O(1)            |        TODO       |
+|    Lazy Pairing Heap    |  persistent |        O(1)       |       O(1)*       |            O(1)            |     O(log(n))*    |
 
 *\* amortized time*
 
