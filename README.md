@@ -7,15 +7,18 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 ### Queues
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/queues.ipynb)
 
-|       instance      | persistence |     snoc     | head |     tail     |
-|:-------------------:|:-----------:|:------------:|:----:|:------------:|
-|    Batched Queue    |  ephemeral  | O(n) / O(1)* | O(1) | O(n) / O(1)* |
-|    Banker's Queue   |  persistent | O(n) / O(1)* | O(1) | O(n) / O(1)* |
-|  Physicist's Queue  |  persistent | O(n) / O(1)* | O(1) | O(n) / O(1)* |
-|   Real-Time Queue   |  persistent |     O(1)     | O(1) |     O(1)     |
-| Hood-Melville Queue |  persistent |     O(1)     | O(1) |     O(1)     |
+|       instance      | persistence |      snoc     | head |      tail     |
+|:-------------------:|:-----------:|:-------------:|:----:|:-------------:|
+|    Batched Queue    |  ephemeral  |  O(n) / O(1)* | O(1) |  O(n) / O(1)* |
+|    Banker's Queue   |  persistent |  O(n) / O(1)* | O(1) |  O(n) / O(1)* |
+|  Physicist's Queue  |  persistent |  O(n) / O(1)* | O(1) |  O(n) / O(1)* |
+|   Real-Time Queue   |  persistent |      O(1)     | O(1) |      O(1)     |
+| Hood-Melville Queue |  persistent |      O(1)     | O(1) |      O(1)     |
+|  Bootstrapped Queue |  persistent | O(log\*(n))** | O(1) | O(log\*(n))** |
 
 *\* amortized time*
+
+*\*\* amortized time, log\*(n) is constant in practice*
 
 ### Deques
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/deques.ipynb)
@@ -38,6 +41,7 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 |                  instance                  |        cons       |        head        |        tail       |       lookup      |       update      |
 |:------------------------------------------:|:-----------------:|:------------------:|:-----------------:|:-----------------:|:-----------------:|
 |          Binary Random Access List         |     O(log(n))     | O(log(n)) / O(1)** |     O(log(n))     |     O(log(n))     |     O(log(n))     |
+|    Alternative Binary Random Access List   |     O(log(n))     | O(log(n)) / O(1)** |     O(log(n))     |     O(log(n))     |     O(log(n))     |
 |     Zeroless Binary Random Access List     |     O(log(n))     |        O(1)        |     O(log(n))     |     O(log(i))     |     O(log(i))     |
 | Zeroless Redundant Bin. Random Access List | O(log(n)) / O(1)* |        O(1)        | O(log(n)) / O(1)* |     O(log(i))     |     O(log(i))     |
 |       Skew Binary Random Access List       |        O(1)       |        O(1)        |        O(1)       | O(min(i, log(n))) | O(min(i, log(n))) |
@@ -72,6 +76,8 @@ where n is the list size and i is the index parameter of the `lookup`/`update`.
 |:--------------------:|:-----------:|:----------:|:-----:|
 |      Merge Sort      |  persistent | O(log(n))* | O(n)* |
 | Scheduled Merge Sort |  persistent |  O(log(n)) |  O(n) |
+
+*\* amortized time*
 
 ### Sets
 

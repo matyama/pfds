@@ -52,3 +52,72 @@ Typical areas where these data structures are used are:
  - *real-time systems* - if an operation misses a hard deadline and causes a system failure then it doesn't matter how many operations finished ahead of a schedule
  - *parallel systems* - if a processor in a synchronous system executes an expensive operation than all the other processors must wait until it completes
  - *interactive systems* - users often value consistency more than raw speed (single extremely slow operation in a sequence is more noticeable than if all operations the sequence are just slightly slower than normal even though the latter sequence may take longer in total)
+
+## Recursive data structure
+Data structures where at least one definition (type constructor)
+contains a component over the type being defined - i.e. is defined
+recursively.
+
+There are two variants of recursive data structures:
+ 1. *uniformly recursive* - the recursive component is identical to the
+		type being defined
+ 1. *non-uniformly recursive* - the recursive component may be more
+		complex than (different from) the type being defined
+
+### Example: Uniform and non-uniform list
+```haskell
+-- | Uniform list
+data List a = Nil | Cons a (List a)
+
+-- | Non-uniform list
+data List a = Nil | Cons a (List (a, a))
+```
+
+### Polymorphic recursion
+Some languages (for instance SML) allow the definition of *non-uniform*
+data structures but restrict recursive calls to be uniform over the type
+of the enclosing function.
+
+It is always possible to convert a *non-uniform* data structure to a
+*uniform* one at the cost of a larger representation and thus additional
+pattern matching costs. For instance the *non-uniform* `List` can be
+represented as
+```haskell
+data EP a = Elem a | Pair (EP a) (EP a)
+data List a = Nil | Cons (EP a) (List a)
+```
+
+Languages with *polymorphic recursion* (Haskell) allow *non-uniform*
+recursive definitions and thus do not incur such costs and their
+function definitions are more concise.
+
+## Bootstrapping
+Generally, *bootstrapping* refers to a problem whose solutions require
+solutions to (simpler) instances of the same problem.
+
+In the domain of data structures, *bootstrapping* may take several
+forms:
+ - *structural decomposition* constructs complete data structures from
+		 incomplete ones
+ - *structural abstraction* builds efficient data structures from
+		 inefficient ones
+ - *aggregation* creates data structures with aggregate elements from
+		 data structures with atomic elements
+
+## Structural decomposition
+*Structural decomposition* is a *bootstrapping* technique which
+constructs complete data structures from incomplete ones which have
+bounded size.
+
+Structurally decomposed data structures are recursive structures that
+are *non-uniform* - i.e. where the recursive component is not the same
+as the one being defined.
+
+### Example: Efficient size of a non-uniform list
+```haskell
+data List a = Nil | Cons a (List (a, a))
+
+size :: List a -> Int
+size Nil = 0
+Size (List _ ps) = 1 + 2 * size ps
+```
