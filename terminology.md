@@ -59,9 +59,9 @@ contains a component over the type being defined - i.e. is defined
 recursively.
 
 There are two variants of recursive data structures:
- 1. *uniformly recursive* - the recursive component is identical to the
+ 1. **uniformly recursive** - the recursive component is identical to the
 		type being defined
- 1. *non-uniformly recursive* - the recursive component may be more
+ 1. **non-uniformly recursive** - the recursive component may be more
 		complex than (different from) the type being defined
 
 ### Example: Uniform and non-uniform list
@@ -87,25 +87,25 @@ data EP a = Elem a | Pair (EP a) (EP a)
 data List a = Nil | Cons (EP a) (List a)
 ```
 
-Languages with *polymorphic recursion* (Haskell) allow *non-uniform*
+Languages with **polymorphic recursion** (Haskell) allow *non-uniform*
 recursive definitions and thus do not incur such costs and their
 function definitions are more concise.
 
 ## Bootstrapping
-Generally, *bootstrapping* refers to a problem whose solutions require
+Generally, **bootstrapping** refers to a problem whose solutions require
 solutions to (simpler) instances of the same problem.
 
 In the domain of data structures, *bootstrapping* may take several
 forms:
- - *structural decomposition* constructs complete data structures from
+ - **structural decomposition** constructs complete data structures from
 		 incomplete ones
- - *structural abstraction* builds efficient data structures from
+ - **structural abstraction** builds efficient data structures from
 		 inefficient ones
- - *aggregation* creates data structures with aggregate elements from
+ - **aggregation** creates data structures with aggregate elements from
 		 data structures with atomic elements
 
 ## Structural decomposition
-*Structural decomposition* is a *bootstrapping* technique which
+**Structural decomposition** is a *bootstrapping* technique which
 constructs complete data structures from incomplete ones which have
 bounded size.
 
@@ -121,3 +121,53 @@ size :: List a -> Int
 size Nil = 0
 Size (List _ ps) = 1 + 2 * size ps
 ```
+
+## Structural abstraction
+**Structural abstraction** is a which builds *bootstrapped* collections
+with efficient `join` operation from *primitive* data structures.
+
+Join operation combines two collections together, for example:
+ - *merging* two heaps together (`merge`)
+ - *appending* two lists together (`++`)
+
+Because *structural abstraction* creates collections that contain other
+collections as elements, `join` can simply insert one collection into
+the other.
+
+### Example: Template for structurally abstract data structures
+```haskell
+-- | Primitive collection of elements of type 'a'
+data C a = ...
+
+-- | Assuming 'C' defines a value representing an empty collection
+empty :: C a
+empty = ...
+
+-- | Assuming 'C' supports insertion of primitive elements 'a'
+insert :: a -> C a -> C a
+insert x c = ...
+
+-- | Bootstrapped collection of elements of type 'a' that abstracts 'C'
+data B a = E | B a (C (B a))
+
+-- | Create bootstrapped collection containing single element
+unitB :: a -> B a
+unitB x = B x empty
+
+-- | Insert an element to 'B' by bootstrapping 'insert' of 'C'
+insertB :: a -> B a -> B a
+insertB x E = B x empty
+insertB x (B y c) = B x (insert (unitB y) c)
+
+-- | Join two 'B' collections by bootstrapping 'insert' of 'C'
+joinB :: B a -> B a -> B a
+joinB b E = b
+joinB E b = b
+joinB (B x c) b = B x (insert b c)
+```
+
+The challenging aspect of *structural abstraction* is to support `delete`
+operation on the bootstrapped collection. If `(B x c) :: B a` is a
+bootstrapped collection and `x :: a` is to be discarded, then one must
+design a conversion of the primitive collection `c :: C (B a)` into the
+bootstrapped one `B a`.
