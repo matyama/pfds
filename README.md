@@ -38,9 +38,9 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 ### Catenable Lists
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/clists.ipynb)
 
-|    instance    | persistence | amortization |  cons  |  snoc  |   ++  | head |     tail     |
-|:--------------:|:-----------:|:------------:|:------:|:------:|:-----:|:----:|:------------:|
-| Catenable List |  persistent |      yes     | O(1)** | O(1)** | O(1)* | O(1) | O(n) / O(1)* |
+|    instance    | persistence |  cons  |  snoc  |   ++  | head |     tail     |
+|:--------------:|:-----------:|:------:|:------:|:-----:|:----:|:------------:|
+| Catenable List |  persistent | O(1)** | O(1)** | O(1)* | O(1) | O(n) / O(1)* |
 
 *\* amortized time*
 
