@@ -35,6 +35,17 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 
 *\*\* via the `ConsQueue` wrapper*
 
+### Catenable Lists
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/clists.ipynb)
+
+|    instance    | persistence | amortization |  cons  |  snoc  |   ++  | head |     tail     |
+|:--------------:|:-----------:|:------------:|:------:|:------:|:-----:|:----:|:------------:|
+| Catenable List |  persistent |      yes     | O(1)** | O(1)** | O(1)* | O(1) | O(n) / O(1)* |
+
+*\* amortized time*
+
+*\*\* depends on the complexity of `snoc` of the underlying queue*
+
 ### Random Access List
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/rlists.ipynb)
 
