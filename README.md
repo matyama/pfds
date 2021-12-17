@@ -94,13 +94,24 @@ where n is the list size and i is the index parameter of the `lookup`/`update`.
 *\* amortized time*
 
 ### Sets
-
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](hhttps://nbviewer.org/github/matyama/pfds/blob/main/notebooks/sets.ipynb)
 
 |      instance      | persistence |   member  |   insert  |
 |:------------------:|:-----------:|:---------:|:---------:|
 | Binary Search Tree |  ephemeral  |    O(n)   |    O(n)   |
 |   Red-Black Tree   |  ephemeral  | O(log(n)) | O(log(n)) |
+
+### Finite Maps
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](hhttps://nbviewer.org/github/matyama/pfds/blob/main/notebooks/maps.ipynb)
+
+|    instance   | lookup |  bind |
+|:-------------:|:------:|:-----:|
+|      Trie     |  O(qm) | O(qm) |
+| Trie of Trees |  O(qm) | O(qm) |
+
+where
+ - O(q) is the query complexity (e.g. size of an aggregated key `[k]` or `Tree k`)
+ - O(m) is the operation complexity of the underlying map `m k`
 
 ## Terminology
 See [terminology](terminology.md) for brief description and
