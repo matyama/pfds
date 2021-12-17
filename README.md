@@ -94,7 +94,7 @@ where n is the list size and i is the index parameter of the `lookup`/`update`.
 *\* amortized time*
 
 ### Sets
-[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](hhttps://nbviewer.org/github/matyama/pfds/blob/main/notebooks/sets.ipynb)
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/sets.ipynb)
 
 |      instance      | persistence |   member  |   insert  |
 |:------------------:|:-----------:|:---------:|:---------:|
@@ -102,7 +102,7 @@ where n is the list size and i is the index parameter of the `lookup`/`update`.
 |   Red-Black Tree   |  ephemeral  | O(log(n)) | O(log(n)) |
 
 ### Finite Maps
-[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](hhttps://nbviewer.org/github/matyama/pfds/blob/main/notebooks/maps.ipynb)
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/maps.ipynb)
 
 |    instance   | lookup |  bind |
 |:-------------:|:------:|:-----:|
