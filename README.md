@@ -75,10 +75,13 @@ where n is the list size and i is the index parameter of the `lookup`/`update`.
 |        Splay Heap       |  ephemeral  | O(n) / O(log(n))* | O(n) / O(log(n))* | O(n) / O(log(n))* / O(1)** | O(n) / O(log(n))* |
 |       Pairing Heap      |  ephemeral  |        O(1)       |        O(1)       |            O(1)            | O(n) / O(log(n))* |
 |    Lazy Pairing Heap    |  persistent |        O(1)       |       O(1)*       |            O(1)            |     O(log(n))*    |
+|    Bootstrapped Heap    |  persistent |       O(1)'       |       O(1)'       |            O(1)            |     O(log(n))'    |
 
 *\* amortized time*
 
 *\*\* with explicit reference to the minimum element*
+
+*' either worst-case or amortized depending on the underlying heap*
 
 ### Sortable Collections
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/sortable.ipynb)
