@@ -231,3 +231,41 @@ But bootstrapping simply stops with these *aggregate* types which are
 useful on their own. For instance finite maps defined over some simple
 type can be bootstrapped to finite maps over lists or even trees of that
 type.
+
+## Recursive slowdown
+*Recursive slowdown* is a generalization of the idea behind the
+*segmented redundant binary numbers* to other data structures.
+
+This numerical representation can be viewed as a template for data
+structures composed of a sequence of levels where each level can be
+classified as
+ - *green*  (0 in the numerical representation)
+ - *yellow* (1 in the numerical representation)
+ - *red* (2 in the numerical representation)
+
+> An operation may degrade the color of the first level from *green*
+to *yellow* or from *yellow* to *red* but never from *green* to *red*.
+[...] The invariant is that the last non-yellow level before a red
+level is always green. [...] Consecutive *yellow* levels are grouped
+into a block to support efficient access to the first non-yellow level.
+
+## Implicit recursive slowdown
+*Implicit recursive slowdown* is a representation framework similar to
+the *recursive slowdown* but instead of *segmented redundant* binary
+numbers it uses *lazy redundant* representations.
+
+Moreover, *implicit recursive slowdown* combines this numerical
+representation with *non-uniform recursive types* - i.e. *structural
+decomposition* to be able to prove amortized bounds on operations that
+are used not only in isolation but intertwined with others.
+
+The choice of allowed digits from the numerical representation depends
+on the operation and the data type. For instance *queue* operations are
+summarized in following table:
+
+| supported operations |  allowed digits |
+|:--------------------:|:---------------:|
+|         cons         |    Zero, One    |
+|      cons / head     |     One, Two    |
+|      head / tail     |     One, Two    |
+|  cons / head / tail  | One, Two, Three |

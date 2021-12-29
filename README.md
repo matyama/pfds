@@ -7,14 +7,15 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 ### Queues
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/queues.ipynb)
 
-|       instance      | persistence |      snoc     | head |      tail     |
-|:-------------------:|:-----------:|:-------------:|:----:|:-------------:|
-|    Batched Queue    |  ephemeral  |  O(n) / O(1)* | O(1) |  O(n) / O(1)* |
-|    Banker's Queue   |  persistent |  O(n) / O(1)* | O(1) |  O(n) / O(1)* |
-|  Physicist's Queue  |  persistent |  O(n) / O(1)* | O(1) |  O(n) / O(1)* |
-|   Real-Time Queue   |  persistent |      O(1)     | O(1) |      O(1)     |
-| Hood-Melville Queue |  persistent |      O(1)     | O(1) |      O(1)     |
-|  Bootstrapped Queue |  persistent | O(log\*(n))** | O(1) | O(log\*(n))** |
+|       instance      | persistence |        snoc       | head |        tail       |
+|:-------------------:|:-----------:|:-----------------:|:----:|:-----------------:|
+|    Batched Queue    |  ephemeral  |    O(n) / O(1)*   | O(1) |    O(n) / O(1)*   |
+|    Banker's Queue   |  persistent |    O(n) / O(1)*   | O(1) |    O(n) / O(1)*   |
+|  Physicist's Queue  |  persistent |    O(n) / O(1)*   | O(1) |    O(n) / O(1)*   |
+|   Real-Time Queue   |  persistent |        O(1)       | O(1) |        O(1)       |
+| Hood-Melville Queue |  persistent |        O(1)       | O(1) |        O(1)       |
+|  Bootstrapped Queue |  persistent |   O(log\*(n))**   | O(1) |   O(log\*(n))**   |
+|    Implicit Queue   |  persistent | O(log(n)) / O(1)* | O(1) | O(log(n)) / O(1)* |
 
 *\* amortized time*
 
