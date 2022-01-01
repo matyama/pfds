@@ -47,6 +47,17 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 
 *\*\* depends on the complexity of `snoc` of the underlying queue*
 
+### Catenable Deques
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/cdeques.ipynb)
+
+|         instance         | persistence |  cons  |  snoc  |     ++     | head |  tail | last |  init |
+|:------------------------:|:-----------:|:------:|:------:|:----------:|:----:|:-----:|:----:|:-----:|
+|  Simple Catenable Deque  |  persistent | O(1)** | O(1)** | O(log(n))* | O(1) | O(1)* | O(1) | O(1)* |
+
+*\* amortized time*
+
+*\*\* amortized or worst-case time (depends on the underlying deque instance)*
+
 ### Random Access List
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/rlists.ipynb)
 
