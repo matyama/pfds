@@ -53,6 +53,7 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 |         instance         | persistence |  cons  |  snoc  |     ++     | head |  tail | last |  init |
 |:------------------------:|:-----------:|:------:|:------:|:----------:|:----:|:-----:|:----:|:-----:|
 |  Simple Catenable Deque  |  persistent | O(1)** | O(1)** | O(log(n))* | O(1) | O(1)* | O(1) | O(1)* |
+| Implicit Catenable Deque |  persistent | O(1)** | O(1)** |    O(1)*   | O(1) | O(1)* | O(1) | O(1)* |
 
 *\* amortized time*
 
