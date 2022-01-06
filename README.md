@@ -24,13 +24,18 @@ from [*Purely Functional Data Structures*](https://www.goodreads.com/book/show/5
 ### Deques
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/matyama/pfds/blob/main/notebooks/deques.ipynb)
 
-|                instance               | persistence |     cons     | head |     tail     |     snoc     | last |     init     |
-|:-------------------------------------:|:-----------:|:------------:|:----:|:------------:|:------------:|:----:|:------------:|
-|    Output-Restricted Banker's Deque   |  persistent | O(n) / O(1)* | O(1) | O(n) / O(1)* | O(n) / O(1)* |   -  |       -      |
-|   Output-Restricted Real-Time Deque   |  persistent |     O(1)     | O(1) |     O(1)     |     O(1)     |   -  |       -      |
-| Output-Restricted Hood-Melville Deque |  persistent |    O(1)**    | O(1) |     O(1)     |     O(1)     |   -  |       -      |
-|             Banker's Deque            |  persistent | O(n) / O(1)* | O(1) | O(n) / O(1)* | O(n) / O(1)* | O(1) | O(n) / O(1)* |
-|            Real-Time Deque            |  persistent |     O(1)     | O(1) |     O(1)     |     O(1)     | O(1) |     O(1)     |
+#### Output-Restricted Queues
+|                instance               | persistence |     cons     | head |     tail     |     snoc     |
+|:-------------------------------------:|:-----------:|:------------:|:----:|:------------:|:------------:|
+|    Output-Restricted Banker's Deque   |  persistent | O(n) / O(1)* | O(1) | O(n) / O(1)* | O(n) / O(1)* |
+|   Output-Restricted Real-Time Deque   |  persistent |     O(1)     | O(1) |     O(1)     |     O(1)     |
+| Output-Restricted Hood-Melville Deque |  persistent |    O(1)**    | O(1) |     O(1)     |     O(1)     |
+
+#### Double-Ended Queues
+|     instance    | persistence |     cons     | head |     tail     |     snoc     | last |     init     |
+|:---------------:|:-----------:|:------------:|:----:|:------------:|:------------:|:----:|:------------:|
+|  Banker's Deque |  persistent | O(n) / O(1)* | O(1) | O(n) / O(1)* | O(n) / O(1)* | O(1) | O(n) / O(1)* |
+| Real-Time Deque |  persistent |     O(1)     | O(1) |     O(1)     |     O(1)     | O(1) |     O(1)     |
 
 *\* amortized time*
 
