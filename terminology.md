@@ -269,3 +269,11 @@ summarized in following table:
 |      cons / head     |     One, Two    |
 |      head / tail     |     One, Two    |
 |  cons / head / tail  | One, Two, Three |
+
+### Practical applications
+Data structures based in this idea are used to implement efficient
+*dequeues* and to bootstrap other tree-like structures.
+
+[Finger tree](https://en.wikipedia.org/wiki/Finger_tree) is one example
+of such data structure that is used to implement Haskell's
+[`Data.Sequence`](https://bit.ly/3G3RxEX).
